@@ -14,7 +14,7 @@ import java.util.List;
 public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
 
     private List<Msg> mMsgList;
-   // private Object LayoutInflater;
+    // private Object LayoutInflater;
 
     /**
      * 内部类
@@ -73,3 +73,4 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
     public int getItemCount() {
         return mMsgList.size();
     }
+}
