@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +21,6 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
      * 内部类
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
-        // TODO: 2024/4/23  P148
         LinearLayout leftLayout;
         LinearLayout rightLayout;
         TextView leftMsg;
@@ -43,7 +43,20 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_item, parent, false);
-        return new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
+        holder.leftMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"the type you clicked is received",Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.rightMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"the type you clicked is send",Toast.LENGTH_SHORT).show();
+            }
+        });
+        return holder;
     }
 
     @Override
@@ -68,6 +81,7 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
         }
 
     }
+
 
     @Override
     public int getItemCount() {
